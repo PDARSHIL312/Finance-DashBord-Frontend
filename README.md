@@ -4,6 +4,9 @@ This project is a responsive finance dashboard designed to help users manage the
 
 ## video
 
+https://github.com/PDARSHIL312/Finance-DashBord-Frontend/assets/137078389/2bffd3ee-f23b-4967-b86f-42bac00e9c9c
+
+
 ## Table of Contents
 
 - [Installation](#installation)
