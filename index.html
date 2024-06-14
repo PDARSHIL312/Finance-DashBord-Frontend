@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+      <!--~~~~~~~~~~~~~~~~~~~~~~Left Side~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <aside>
+        <div class="top-list">
+          <div class="logo-box">
+            <img src="logo.png" alt="" />
+            <h1>darshFinance</h1>
+          </div>
+          <i class="bx bx-x"></i>
+        </div>
+        <ul class="navlist">
+          <li class="list active">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-grid-alt"></i>
+              <h3>Dashboard</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-wallet"></i>
+              <h3>My Wallet</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bx-transfer-alt"></i>
+              <h3>Transactions</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-receipt"></i>
+              <h3>Invoices</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-credit-card"></i>
+              <h3>Cards</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-cog"></i>
+              <h3>Seting</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-check-shield"></i>
+              <h3>Security</h3>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-help-circle"></i>
+              <h3>Help-Center</h3>
+            </a>
+          </li>
+          <li class="logout">
+            <a href="#" style="text-decoration: none">
+              <i class="bx bxs-log-out"></i>
+              <h3>Log out</h3>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!--~~~~~~~~~~~~~~~~~~~~~~Main Portion~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <main>
+        <!-- topsearch editing -->
+        <div class="topSearch">
+          <div class="switch-theme">
+            <div class="switch-icons">
+              <span class="sun active">
+                <i class="bx bxs-sun"></i>
+              </span>
+              <span class="moon">
+                <i class="bx bxs-moon"></i>
+              </span>
+            </div>
+          </div>
+          <div class="searchBox">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+        <!-- Detail Box -->
+        <div class="details-box">
+          <div class="content">
+            <div class="income">
+              <div class="left-content">
+                <div class="badge">
+                  <i class="bx bx-left-arrow-alt"></i>
+                </div>
+                <div class="info">
+                  <span>income</span>
+                  <h4>$23,455</h4>
+                </div>
+              </div>
+
+              <div class="right-content">
+                <div class="top">
+                  <i class="bx bx-down-arrow-alt"></i>
+                  <p>-0.3%</p>
+                </div>
+                <span>30 Days</span>
+              </div>
+            </div>
+            <div>
+              <canvas id="myChartOne" height="100px"></canvas>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="outcome">
+              <div class="left-content">
+                <div class="badge">
+                  <i class="bx bx-left-arrow-alt"></i>
+                </div>
+                <div class="info">
+                  <span>Outcome</span>
+                  <h4>$73,655</h4>
+                </div>
+              </div>
+
+              <div class="right-content">
+                <div class="top">
+                  <i class="bx bx-up-arrow-alt"></i>
+                  <p>+0.5%</p>
+                </div>
+                <span>30 Days</span>
+              </div>
+            </div>
+            <div>
+              <canvas id="myChartTwo" height="100px"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- chart Box -->
+        <div class="chartBox">
+          <div class="main-text">
+            <h2>Overflow</h2>
+            <div class="legend-box">
+              <button onclick="toggleData(0)" class="first">This Week</button>
+              <button onclick="toggleData(1)" class="second">Last Week</button>
+              <span>Week <i class="bx bxs-down-arrow"></i></span>
+            </div>
+          </div>
+          <div>
+            <canvas id="myChartThree" height="250px"></canvas>
+          </div>
+        </div>
+        <!-- Dougnut Box -->
+        <div class="chartBox">
+          <div class="main-text">
+            <h2>Activity</h2>
+            <div class="legend-box">
+              <span>Week <i class="bx bxs-down-arrow"></i></span>
+            </div>
+          </div>
+          <div class="details-chart">
+            <div style="width: 100%; height: 220px">
+              <canvas id="myChartFour"></canvas>
+            </div>
+            <div class="info-box">
+              <div class="info">
+                <div class="legend-box">
+                  <i class="bx bxs-circle" style="color: #36a2ab"></i>
+                  <h3>Monthly</h3>
+                </div>
+                <span style="color: #36a2ab">26%</span>
+              </div>
+              <div class="info">
+                <div class="legend-box">
+                  <i class="bx bxs-circle" style="color: #ff6384"></i>
+                  <h3>Groceries</h3>
+                </div>
+                <span style="color: #ff6384">34%</span>
+              </div>
+              <div class="info">
+                <div class="legend-box">
+                  <i class="bx bxs-circle" style="color: #ff9f40"></i>
+                  <h3>Subscrbing</h3>
+                </div>
+                <span style="color: #ff9f40">10%</span>
+              </div>
+              <div class="info">
+                <div class="legend-box">
+                  <i class="bx bxs-circle" style="color: #ffcd56"></i>
+                  <h3>Tax</h3>
+                </div>
+                <span style="color: #ffcd56">15%</span>
+              </div>
+              <div class="info">
+                <div class="legend-box">
+                  <i class="bx bxs-circle" style="color: #4bc0c0"></i>
+                  <h3>Other</h3>
+                </div>
+                <span style="color: #4bc0c0">15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="transactionBox">
+          <div class="main-text">
+            <h2>Transactions</h2>
+            <div class="legend-box" >
+              <a href="#" style="text-decoration: none" >Monthly</a>
+              <a href="#" style="text-decoration: none" >Weekly</a>
+              <a href="#" style="text-decoration: none"  class="active">Today</a>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="brand logo/wix.png" alt="" />Canva</td>
+                <td>$17.21</td>
+                <td>03 feb,2023</td>
+                <td><span class="completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td><img src="brand logo/picMonkey.jpg" alt="" />picMonkey</td>
+                <td>$17.21</td>
+                <td>03 feb,2023</td>
+                <td><span class="completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td><img src="brand logo/amazon.png" alt="" />Amazon</td>
+                <td>$17.21</td>
+                <td>03 feb,2023</td>
+                <td><span class="completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td><img src="brand logo/Sony.jpg" alt="" />Sony</td>
+                <td>$17.21</td>
+                <td>03 feb,2023</td>
+                <td><span class="canclled">Canclled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <!--~~~~~~~~~~~~~~~~~~~~~~Right Side~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <div class="right">
+        <!-- Rightside Header -->
+        <div class="header-right">
+          <div class="menuIcon">
+            <i class="bx bx-menu"></i>
+          </div>
+
+          <div class="topIcons">
+            <div class="icon">
+              <i class="bx bxs-message-square-detail bx-tada"></i>
+              <span>3</span>
+            </div>
+            <div class="icon">
+              <i class="bx bxs-bell bx-tada"></i>
+              <span>2</span>
+            </div>
+            <div class="icon">
+              <i class="bx bxs-cog"></i>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="name">
+              <p>Annie Lopaz</p>
+              <span>@annielopaz</span>
+            </div>
+            <div class="pic">
+              <img src="mypic.jpg" alt="" />
+              <i class="bx bx-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Information Box -->
+        <div class="card-info">
+          <div class="main-text">
+            <h2>My Cards</h2>
+            <div class="icon-box">
+              <div class="icon">
+                <i class="bx bx-plus"></i>
+              </div>
+              <div class="icon">
+                <i class="bx bxs-cog"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mySwiper">
+            <div class="card-list swiper-wrapper">
+              <div class="card-item swiper-slide card-item1">
+                <div class="card-header">
+                  <span class="logo">
+                    <img src="card-images/logo.png" alt="" />
+                    <h5>Master card</h5>
+                  </span>
+                  <img src="card-images/chip.png" alt="" class="chip" />
+                </div>
+                <div class="card-details">
+                  <div class="name-number">
+                    <h6>Card Number</h6>
+                    <h5 class="number">**** **** **** 2304</h5>
+                  </div>
+                  <div class="valid-date">
+                    <h5 class="name">Annia Lopaz</h5>
+                    <div class="valid-thru">
+                      <h6>Valid thru</h6>
+                      <h5>09/27</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-item swiper-slide card-item2">
+                <div class="card-header">
+                  <span class="logo">
+                    <img src="card-images/logo.png" alt="" />
+                    <h5>Master card</h5>
+                  </span>
+                  <img src="card-images/chip.png" alt="" class="chip" />
+                </div>
+                <div class="card-details">
+                  <div class="name-number">
+                    <h6>Card Number</h6>
+                    <h5 class="number">**** **** **** 2304</h5>
+                  </div>
+                  <div class="valid-date">
+                    <h5 class="name">Annia Lopaz</h5>
+                    <div class="valid-thru">
+                      <h6>Valid thru</h6>
+                      <h5>09/27</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-item swiper-slide card-item3">
+                <div class="card-header">
+                  <span class="logo">
+                    <img src="card-images/logo.png" alt="" />
+                    <h5>Master card</h5>
+                  </span>
+                  <img src="card-images/chip.png" alt="" class="chip" />
+                </div>
+                <div class="card-details">
+                  <div class="name-number">
+                    <h6>Card Number</h6>
+                    <h5 class="number">**** **** **** 2304</h5>
+                  </div>
+                  <div class="valid-date">
+                    <h5 class="name">Annia Lopaz</h5>
+                    <div class="valid-thru">
+                      <h6>Valid thru</h6>
+                      <h5>09/27</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-item swiper-slide card-item4">
+                <div class="card-header">
+                  <span class="logo">
+                    <img src="card-images/logo.png" alt="" />
+                    <h5>Master card</h5>
+                  </span>
+                  <img src="card-images/chip.png" alt="" class="chip" />
+                </div>
+                <div class="card-details">
+                  <div class="name-number">
+                    <h6>Card Number</h6>
+                    <h5 class="number">**** **** **** 2304</h5>
+                  </div>
+                  <div class="valid-date">
+                    <h5 class="name">Annia Lopaz</h5>
+                    <div class="valid-thru">
+                      <h6>Valid thru</h6>
+                      <h5>09/27</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pagination">
+              <div class="swiper-button-prev">
+                <i class="bx bx-chevron-left"></i>
+              </div>
+              <div class="swiper-button-next">
+                <i class="bx bx-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- card  details -->
+          <div class="card-details">
+            <h2>Card Details</h2>
+
+            <div class="all-info-card">
+              <div class="info-card-item">
+                <p>Balance</p>
+                <span class="balance">$42.124</span>
+              </div>
+              <div class="info-card-item">
+                <p>Card name</p>
+                <span>Master Card</span>
+              </div>
+              <div class="info-card-item">
+                <p>Card Number</p>
+                <span class="">**** **** **** 2304</span>
+              </div>
+              <div class="info-card-item">
+                <p>Bank</p>
+                <span class="">SBI</span>
+              </div>
+              <div class="info-card-item">
+                <p>Name</p>
+                <span class="">Annia Lopaz</span>
+              </div>
+              <div class="info-card-item">
+                <p>Valid thru</p>
+                <span class="">09/27</span>
+              </div>
+            </div>
+            <div class="manageBtn">
+              <a href="#" style="text-decoration: none">Manage Cards</a>
+            </div>
+            <div class="transferBtn">
+              <a href="#" style="text-decoration: none">Transfer</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Friends Section -->
+        <div class="friends">
+          <div class="main-text">
+            <h2>Friend List</h2>
+            <div class="searchBox">
+              <i class="bx bx-search"></i>
+              <input type="text" placeholder="Search" id="" />
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar1.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar2.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar3.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar4.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar5.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar6.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar1.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+          <div class="friendBox">
+            <div class="service">
+              <img src="avatar2.jpg" alt="" />
+              <div class="friendName">
+                <h4>Martin Patel</h4>
+                <span>@martinPatel</span>
+              </div>
+            </div>
+            <div class="messageIcon">
+              <i class="bx bxs-message-square-detail"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
